@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
 
-  <title>YODA principles</title>
+  <title>Computational Reproducibility in Neuroscience</title>
 
-  <meta name="description" content="Talk on DataLad">
-  <meta name="author" content="Michael Hanke and Yaroslav Halchenko">
+  <meta name="description" content="Specific issues (and solutions) of reproducibility management in neuroscience">
+  <meta name="author" content="Adina Wagner">
 
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="css/main.css" id="theme">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
   <link rel="stylesheet" href="reveal.js/css/theme/beige.css" id="theme">
-  <link rel="stylesheet" href="s.css" id="theme">
   <!-- Code syntax highlighting -->
   <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
   <!-- Printing and PDF exports -->
@@ -38,182 +38,629 @@
 
 <div class="reveal">
 <div class="slides">
+
+
 <section>
-  <h1>YODA principles</h1>
-  <table>
+<section>
+<h2>reproducibility management in neuroscience<br  />🧠💻<br  /><small>Specific issues - and solutions</small></h2>
+
+  <div style="margin-top:1em;text-align:center">
+  <table style="border: none;">
   <tr>
-  <td>Michael Hanke</td><td>Yaroslav Halchenko</td>
+	<td>Adina Wagner
+	  <br><small>
+		<a href="https://twitter.com/AdinaKrik" target="_blank">
+		  <img data-src="pics/twitter.png" style="height:30px;margin:0px" />
+		  @AdinaKrik</a></small></td>
+    <td><img style="height:100px;margin-right:10px" data-src="pics/fzj_logo.svg" />
+	  <br></td>
   </tr>
   <tr>
     <td>
-      <small>Psychoinformatics lab, Jülich Research Center and<br>
-      Heinrich-Heine-University, Düsseldorf</small>
+        <small><a href="http://psychoinformatics.de" target="_blank">Psychoinformatics lab</a>,
+          <br> Institute of Neuroscience and
+          Medicine, Brain &amp; Behavior (INM-7)<br>
+       Research Center Jülich</small><br>
     </td>
     <td>
-        <small>Dept. Psychological and Brain Sciences <br />
-      Center for Cognitive Neuroscience, Dartmouth College
-      </small>
+          <img height="90" src="pics/repronim.png">
+          <img height="80" src="pics/incf.png"
     </td>
   </tr>
   </table>
-  <img style="margin-top:60px" height="300px" data-src="pics/yoda.png">
+  </div>
+<br><br><small>
+    Slides: <a href="TODO" target="_blank">
+    TODO ZENODO/FIGSHARE</a></small>
+</a>
+</section>
 </section>
 
+<!-- Introduction -->
 
-<section data-markdown>
-## P1: One thing, one dataset
-![](pics/dataset_modules.png)
-whenever a particular collection of files could anyhow be useful in more than one context,
-put them in their own dataset
-</section>
-
-<section data-markdown>
-## P2: Record where you got it from, and we it is now
-![](pics/data_origin.png)
-
-link individual datasets to declare data-dependencies, record access URLs for individual files obtained from (unstructured) sources "in the cloud"
+<section>
+<section  data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
+  data-background-opacity="0.5">
+      <q cite="Jon Claerbout (paraphrased)">
+          An article about computational science in a scientific publication
+          is not the scholarship itself, it is merely advertising of the scholarship.
+          The actual scholarship is the complete software development environment
+          and the complete set of instructions which generated the figures.
+      </q>
+      <br><small>
+      Jon Claerbout (paraphrased)</small>
 </section>
 
 <section>
-  <h2>Link re-usable data resource units</h2>
-<img data-src="pics/dataset_linkage.png">
-<pre><code class="bash" style="font-size:115%;max-height:none">$ datalad install --dataset . --source http://example.com/ds inputs/rawdata
-</code></pre>
+    <h2></h2>
+      <img src="pics/ReproducibleDefinitionGrid.png">
+      <imgcredit>Illustration by Scriberia and The Turing Way</imgcredit>
+      <br><small><a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#rr-overview-definitions" target="_blank">
+      (The Turing Way)</a> </small>
+</section>
 
-<pre><code class="diff" style="max-height:none">$ git diff HEAD~1
-diff --git a/.gitmodules b/.gitmodules
-new file mode 100644
-index 0000000..c3370ba
---- /dev/null
-+++ b/.gitmodules
-@@ -0,0 +1,3 @@
-+[submodule "inputs/rawdata"]
-+       path = inputs/rawdata
-+       url = http://example.com/importantds
-diff --git a/inputs/rawdata b/inputs/rawdata
-new file mode 160000
-index 0000000..fabf852
---- /dev/null
-+++ b/inputs/rawdata
-@@ -0,0 +1 @@
-+Subproject commit fabf8521130a13986bd6493cb33a70e580ce8572
-</code></pre>
-    <aside class="notes">weighs just a few bytes</aside>
+</section>
+
+<!-- Specific issues in Neuroscience -->
+
+<section>
+<section>
+    <h2>Specific issues: Data</h2>
+    <ul style="font-size:35px">
+        <li>
+            Neuroscientists acquire interesting data, but it has its peculiarities:
+        </li>
+        <ul style="font-size:30px">
+            <li class="fragment fade-in">
+                Depending on acquisition hardware and analysis software, some
+                data are in proprietary formats (e.g., Neuromag, brain voyager,
+                brain vision)
+            </li>
+            <li class="fragment fade-in">
+                Depending on field, data can be sizeable (e.g., (f)MRI, CT,
+                EEG, PET, MEG)
+            </li>
+            <li class="fragment fade-in">
+                Complex acquisitions with multiple data channels and modalities
+            </li>
+            <li class="fragment fade-in">
+                Datasets are getting bigger and bigger (<a href="https://sci-hub.se/10.1016/j.neuroimage.2017.04.061" target="_blank">
+                Bzdok & Yeo, 2017</a>), e.g. multi-modal imaging, behavioral + genetics
+                data in HCP (<a href="http://humanconnectome.org/" target="_blank">humanconnectome.org</a>)
+                or UKBiobank (<a href="https://www.ukbiobank.ac.uk/" target="_blank">ukbiobank.ac.uk/</a>
+            </li>
+            <li class="fragment fade-in">
+                Some data fall under General Data Protection Regulation (GDPR)
+            </li>
+        </ul>
+    </ul>
 </section>
 
 <section>
-  <h2>Modular data stewardship and curation</h2>
-  <img style="" height="750px" data-src="pics/virtual_dirtree.png">
-  <p style="margin-top:-.5em">"actionable" links to subdatasets/files, seamless handling of dataset trees</p>
-    <aside class="notes">dataset linkage is pairwise, i.e. cheap</aside>
-</section>
-
-
-<section data-markdown>
-## Move/share/publish data
-![](pics/decentralized_publishing.png)
-</section>
-
-
-
-<section data-markdown>
-## P3: Record what you did to it, and with what
-![](pics/w3cprov.png)
-
-capture how exactly the content of every file
-
-(that was not obtained from elsewhere)
-
-came to be
+    <h2>Specific issues: Complex analyses</h2>
+            <img class="fragment fade-in-then-semi-out"
+                 data-fragment-index="1" height="200"
+                 src="pics/masterplan.png">
+    <ul style="font-size:35px">
+        <li class="fragment fade-in" data-fragment-index="2">
+            Much of neuroscientific research is computationally intensive, with
+            complex workflows from raw data to result, and plenty of researcher's
+            degrees of freedom
+        </li>
+    </ul>
+    <img class="fragment fade-in" data-fragment-index="2" src="pics/dataflow.jpg">
+    <imgcredit>
+        <a href="https://www.frontiersin.org/articles/10.3389/fninf.2012.00009/full" target="_blank">
+            Poline et al., 2011</a></imgcredit>
 </section>
 
 <section>
-  <h2>Data provenance capture</h2>
-  <img style="margin:-20px" data-src="pics/dataset_linkage_provenance.png">
-<pre><code class="bash" style="max-height:none">$ datalad run -m "Perform eye movement event detection"\
-  --input 'inputs/raw_eyegaze/sub-*/beh/sub-*...tsv.gz' \
-  --output 'sub-*' \
-  bash code/compute_all.sh
+    <h2>Specific issues: Complex analyses</h2>
+    <ul>
+        The analytic flexibility leads to sizable variations in conclusion.
+        <table style="font-size:35px">
+            <tr class="fragment fade-in-then-semi-out">
+                <td>
+                <dl>
+                    <dt>NARPS Study,<br>
+                    <small><a href="https://sci-hub.se/10.1038/s41586-020-2314-9" target="_blank">
+                    Botvinik-Nezer et al., 2020</a></small></dt>
+                </dl>
+                </td>
+            <td>
+                70 independent research groups, <br> investigating 9 hypothesis,
+                on the <br>same data: Consistent conclusions  <br>for four
+                hypothesis
+            </td>
+            </tr>
+            <tr class="fragment fade-in">
+                <td>
+                    The variety of methodological <br>
+                    & analytical choices is not the <br>
+                    enemy to computational  <br>reproducibility,
+                    <strong>the challenge <br>lies in encoding
+                    those degrees <br>of freedom in a
+                    standardized, <br>ideally machine-readable
+                    way <br></strong>
+                    <small><a href="https://sci-hub.se/10.1111/nyas.13325" target="_blank">
+                        Gilmore et al., 2017</a> </small>
+                </td>
+                <td>
+                <img src="pics/sidney_harris_miracle.jpg" style="box-shadow: 10px 10px 8px #888888;height=500px" height="500"><br>
+                </td>
+            </tr>
+    </table>
+</section>
 
--- Git commit -- Michael Hanke &lt;michael.hanke@gmail.com&gt;; Fri Sep 21 22:00:47 2018
-    [DATALAD RUNCMD] Perform eye movement event detection
-    === Do not change lines below ===
-    {
-     "cmd": "bash code/compute_all.sh",
-     "dsid": "d2b4b72a-7c13-11e7-9f1f-a0369f7c647e",
-     "exit": 0,
-     "inputs": ["inputs/raw_eyegaze/sub-*/beh/sub-*_task-movie_run-*_....tsv.gz"],
-     "outputs": ["sub-*"],
-     "pwd": "."
-    }
-    ^^^ Do not change lines above ^^^
----
- sub-01/sub-01_task-movie_run-1_events.png | 2 +-
- sub-01/sub-01_task-movie_run-1_events.tsv | 2 +-
-...
-</code></pre>
+<section data-transition="None">
+    <h2>Specific issues: Complex analysis</h2>
+    <dl style="font-size:35px">
+        <dt>The building blocks of a scientific result are rarely static</dt>
+            <table>
+                <tr>
+                    <td>Analysis code evolves<br>
+                    <small>(Fix bugs, add functions,
+                        refactor, ...)</small></td>
+                    <td><img src="pics/final.png" height="500">
+                    <imgcredit>Based on Piled Higher and Deeper
+                        <a href="https://phdcomics.com/comics/archive_print.php?comicid=1531" target="_blank">
+                            1531
+                        </a> </imgcredit></td>
+                </tr>
+            </table>
+    </dl>
+</section>
+
+<section data-transition="None">
+    <h2>Specific issues: Complex analysis</h2>
+    <dl style="font-size:35px">
+        <dt>The building blocks of a scientific result are rarely static</dt>
+            <table>
+                <tr>
+                    <td>Data changes <br>
+                        <small>(errors are fixed, data is extended,<br>
+                            naming standards change, ...)</small></td>
+                    <td><img src="pics/phd052810s.png" height="500">
+                    <imgcredit>Piled Higher and Deeper
+                        <a href="https://phdcomics.com/comics/archive_print.php?comicid=1323" target="_blank">
+                            1323
+                        </a> </imgcredit></td>
+                </tr>
+            </table>
+    </dl>
 </section>
 
 <section>
-  <h2>"Complete" provenance capture</h2>
-  <img style="margin:-20px" data-src="pics/dataset_linkage_provenance.png">
-<pre><code class="bash" style="max-height:none">$ datalad containers-run -n nilearn \
-  --input 'inputs/mri_aligned/sub-*/in_bold3Tp2/sub-*_task-avmovie_run-*_bold*' \
-  --output 'sub-*/LC_timeseries_run-*.csv' \
-  "bash -c 'for sub in sub-*; do for run in run-1 ... run-8;
-     do python3 code/extract_lc_timeseries.py \$sub \$run; done; done'"
-
--- Git commit -- Michael Hanke &lt;michael.hanke@gmail.com&gt;; Fri Jul 6 11:02:28 2018
-    [DATALAD RUNCMD] singularity exec --bind {pwd} .datalad/e...
-    === Do not change lines below ===
-    {
-     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
-     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
-     "exit": 0,
-     "inputs": [
-      "inputs/mri_aligned/sub-*/in_bold3Tp2/sub-*_task-avmovie_run-*_bold*",
-      ".datalad/environments/nilearn.simg"
-     ],
-     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
-     "pwd": "."
-    }
-    ^^^ Do not change lines above ^^^
----
- sub-01/LC_timeseries_run-1.csv | 1 +
- sub-01/LC_timeseries_run-2.csv | 1 +
-...
-</code></pre>
+    <h2>Specific issues: Complex analyses</h2>
+    "Shit, which version of which script produced these outputs from which version
+    of what data?"<br>
+    <img src="pics/manuallabor.png">
+    <img src="pics/findfiles.png" height="400">
+    <img src="pics/projectstack.png" height="350">
+    <imgcredit>CC-BY Scriberia and <a href="https://the-turing-way.netlify.app/reproducible-research/rdm.html" target="_blank">
+        The Turing Way</a>
+    </imgcredit>
 </section>
 
 
 <section>
-    <h2>Datalad principles</h2>
-    <ul style="font-size:115%">
-        <li style="margin-bottom:1em">There are only two things in the world: <strong>datasets and files</strong>.</li>
-        <li style="margin-bottom:1em">A <strong>dataset is a Git repository</strong>.</li>
-        <li style="margin-bottom:1em">A dataset can have an <strong>optional <em>annex</em></strong> for (large) file content tracking (transport to and from the annex managed with Git-annex, <a href="https://git-annex.branchable.com">https://git-annex.branchable.com</a>).</li>
-        <hr />
-        <li style="margin-bottom:1em">Minimization of custom procedures and data structures: <strong>Users must not loose data or data access</strong>, if DataLad would vanish.</li>
-        <li style="margin-bottom:1em"><strong>Complete decentralization</strong>, no required central server or service.</li>
-        <li style="margin-bottom:1em">Maximize use of existing 3rd-party infrastructure.</li>
+    <h3>The pipeline needs to become transparent</h3>
+    <table>
+        <tr>
+            <td>
+            <img src="pics/Provenance_alpha.png">
+            <imgcredit><a href="https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-data.html" target="_blank">
+                        CC-BY Scriberia & The Turing Way</a>
+            </imgcredit>
+            </td>
+            <td style="font-size:35px">
+                <i>Digital Provenance</i> = A complete description of how a digital file
+              came to be <a href="https://www.go-fair.org/fair-principles/r1-2-metadata-associated-detailed-provenance/" target="_blank">
+                    (FAI<b>R</b> principles)
+                </a> </i>
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h3>The pipeline needs to become automated</h3>
+    <table>
+        <tr>
+            <td>
+            <img src="pics/MachineReadable.png">
+            <imgcredit><a href="https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-data.html" target="_blank">
+                        CC-BY Scriberia & The Turing Way</a>
+            </imgcredit>
+            </td>
+            <td>
+                <ul style="font-size:35px">
+                    <li>
+                        enshrine analysis <br>
+                        & workflows in <br>
+                        code, not clicks
+                    </li>
+                    <li>
+                        Make workflow <br>
+                        execution easy, <br>
+                        e.g., with master <br>
+                        scripts to bundle<br>
+                        up individual steps <br>
+                    </li>
+                    <small>Perkel, 2020,
+                        <a href="https://www.nature.com/articles/d41586-020-02462-7" target="_blank">
+                            checklist for <br>
+                            computational reproducibility
+                    </a></small>
+                </ul>
+
+            </td>
+        </tr>
+    </table>
+</section>
+
+<section>
+    <h2>Specific issues: Complex tools</h2>
+    <iframe src="https://giphy.com/embed/yhcqymRLlv7K8" width="480" height="363" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/oc-the-rachel-bilson-yhcqymRLlv7K8"></a></p>
+</section>
+
+<section data-transition="None">
+    <h2>Specific issues: Complex tools</h2>
+
+    <ul style="font-size:35px">
+        <li class="fragment fade-in-then-semi-out" data-fragment-index="1">
+            Software is a part of the digital provenance of your work:
+            Some analysis will only work in the desired way (or at all)
+            in specific versions of a software
+        </li>
+        <li class="fragment fade-in" data-fragment-index="2">
+            But it goes beyond "one software": Modern data analysis software
+            has an incredibly complex dependency stack
+        </li>
+        <li class="fragment fade-in" data-fragment-index="2">
+            Example Scikit-learn
+            <small>
+            Direct dependencies: 38 packages, 153 dependency relations.
+            Recursive dependencies: 485 packages, 10715 dependency relations</small>
+        </li>
+    </ul>
+    <div class="fragment fade-in">
+    <img src="pics/dependencies_sklearn.png">
+    <small><a href="http://computation-in-science.khinsen.net/software-dependencies.html" target="_blank">
+                "Computation in science", Hinsen (2020)
+            </a></small></div>
+</section>
+
+<section data-transition="None">
+        <h2>Specific issues: Complex tools</h2>
+    <dl>
+        <dt>R base core</dt> (direct dependencies only)
+    <img src="pics/deps_r-base-core.jpeg">
+</section>
+
+
+<section  data-transition="None">
+    <h2>Specific issues: Complex tools</h2>
+    <dl>
+        <dt>JASP</dt> (direct dependencies only)
+            <img src="pics/deps_jasp.jpeg" height="600">
+    </dl>
+
+</section>
+
+<section data-transition="None">
+    <h2>Everything matters</h2>
+    <img src="pics/glatard01.png">
+</section>
+
+<section data-transition="None">
+    <h2>Everything matters</h2>
+    <img src="pics/glatard02.png">
+</section>
+
+<section>
+    <h2>Most of us are no computer scientists</h2>
+    So that a completely overwhelming additional layer of complexity!
+</section>
+
+<section data-transition="None">
+    <img src="pics/fragile.png" height="800">
+    <imgcredit>Based on <a href="https://xkcd.com/2347/" target="_blank">
+        xkcd.com/2347/</a> (CC-BY)</imgcredit>
+</section>
+
+<section data-transition="None">
+    <h2>"Works on my machine"</h2>
+    <img src="pics/WOMM.jpg">
+</section>
+
+<section data-transition="None">
+    <h2>"This used to work on my machine..."</h2>
+    <img src="pics/WOMM2.jpg">
+</section>
+
+<section data-transition="None">
+    <img src="pics/frontend_vs_backend_paper.png">
+</section>
+
+<section>
+    <h2>Towards computationally reproducible science</h2>
+    <dl>
+        <dt>
+            Computationally reproducible science
+        </dt>
+        <dd>
+            Open sharing of code, data, and software environment, in precise
+            versions
+        </dd>
+        <dt><i>automatically</i> computationally reproducible science</dt>
+        <li>
+            Sufficient, ideally machine-readable, digital provenance that allows
+            humans and machines to extract what has been done, and re-do it
+        </li>
+    </dl>
+    How can we do this in neuroscience?
+</section>
+
+</section>
+
+
+<!-- Solutions in Neuroscience -->
+
+<section>
+
+<section>
+    <h2>Going beyond the PDF</h2>
+    http://neurolibre.conp.ca/
+
+</section>
+
+<section>
+    <h2>DataLad <small>(Hanke, Halchenko et al.)</small></h2>
+
+        <ul style="font-size:35px">
+        <li class="fragment fade-in-then-semi-out">
+            Domain-agnostic data management & data publication tool,
+            build on top of <a href="https://git-scm.com/" target="_blank">Git</a>
+            and <a href="https://git-annex.branchable.com/" target="_blank">Git-annex</a> (Joey Hess)
+        </li>
+        <li class="fragment fade-in">
+            <b>Main features:</b>
+        </li>
+            <ul >
+                <li class="fragment fade-in">
+                    version-controlling and linking arbitrarily large digital objects
+                    (data, software, code, results),
+                </li>
+                <li class="fragment fade-in">
+                    transport mechanisms for sharing, obtaining & collaborating
+                    on data (analysis) using existing infrastructure without
+                    a central service
+                </li>
+                <li class="fragment fade-in">
+                    Machine-readable, re-executable provenance
+                </li>
+        </ul>
+    </ul>
+    <img src="pics/decentral_RDM.png">
+</section>
+
+<section>
+    <img src="pics/shareresearch2.gif" height="800">
+</section>
+
+
+<section>
+    <h2>Research Data Management</h2>
+    <ul>
+        <li>use open data formats and software</li>
+    </ul>
+
+    <a href="http://handbook.datalad.org" target="_blank"></a>
+</section>
+
+<section>
+    <h2>Research data management</h2>
+
+    Just like Research Data Management is not an afterthought,
+    reproducibility shouldn't be an afterthought ("Reproducible by Design" (Kennedy et al., 2019)
+</section>
+
+
+<section>
+    <h2>An large and growing ecosystem of Open Source software</h2>
+    <table>
+      <tr style="vertical-align:middle">
+        <td style="vertical-align:middle">
+          <img style="height:100px;margin-right:50px" data-src="../pics/neurodebian.png" />
+          <img style="height:100px;margin-right:50px" data-src="../pics/jupyter_logo.png" />
+          <img style=height:100px;margin-left:50px" data-src="../pics/mindboggle_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/psychopy_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/fsl_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/pydra_logo.png" />
+          <br />
+
+      <div style="margin-top:-20px">
+          <img style="height:100px;margin-left:50px" data-src="../pics/R_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/rstudio-logo.png" />
+          <img style="height:100px;margin:20px" data-src="../pics/afni_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/pymvpa_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/sklearn_logo.png" />
+          <img style="height:100px;margin-left:50px" data-src="../pics/FSlogo.png" />
+          <img style="height:80px;margin-left:50px" data-src="../pics/pysurfer_logo.png" />
+          <img style="height:100px;margin:20px" data-src="../pics/nilearn-logo.png" />
+      </div>
+      <div style="margin-top:-20px">
+          <img style="height:100px;margin:20px" data-src="../pics/ants_logo.png" />
+          <img style="height:100px;margin:20px" data-src="../pics/brainiak_logo.svg" />
+          <img style="height:100px;margin:20px" data-src="../pics/spm.svg" />
+          <img style="height:80px;margin:20px" data-src="../pics/cpac_logo.png" />
+          <img style="height:100px;margin:20px" data-src="../pics/fieldtrip_logo.png" />
+      </div>
+      <div style="margin-top:-40px">
+     <br><small>... and many more!</small>
+      </div>
+      </td>
+      </tr>
+  </table>
+</section>
+
+<section>
+    <h2>Training</h2>
+    <a href="https://sci-hub.se/10.1016/j.conb.2017.06.007" target="_blank">
+        (Goldman & Fee, 2017)
+    </a>
+    <a href="https://academic.oup.com/gigascience/article/5/1/s13742-016-0121-x/2720978" target="_blank">
+        Craddock et al., 2016 Brainhack
+    </a>
+</section>
+
+<section>
+    <h2>Training</h2>
+    More and more tools and services exist that enable open and (computationally)
+    reproducible science, and they are getting easier and easier to use.
+
+    There is a large amount of especially ECRs that share a dedication and motivation
+    for open science.
+
+    Sometimes you only need to know about a tool
+</section>
+
+
+<section data-transition="None">
+    <h2>Training</h2>
+
+    <li>Brainhacks and other Hackathons: Peers train their peers</li>
+    <ul>
+        <li>
+            Conference format with components from hackathons, unconferences,
+            and educational sessions
+        </li>
+        <li>OHBM Brainhack, SIPS</li>
+    </ul>
+    <a href="https://academic.oup.com/gigascience/article/5/1/s13742-016-0121-x/2720978" target="_blank">
+        Craddock et al., 2016 Brainhack
+    </a>
+</section>
+
+<section data-transition="None">
+    <h2>Training</h2>
+    Stackoverflow for Neuroscience: Neurostars.org (by INCF)
+    The Turing Way: An open-source community-guide to reproducible, ethical, inclusive and collaborative data science.
+    The DataLad Handbook: User-focused and workflow-based alternatives to software documentation
+</section>
+
+<section>
+<h2>Software</h2>
+</section>
+
+
+</section>
+
+<!-- Summary -->
+
+<section>
+    <h2>For computational reproducibility, "Everything matters" (Kennedy et al., 2019)</h2>
+    <ul>
+        <li>Computational environments matter</li>
+        <li>Tool selection matters</li>
+        <li>Tool version matters</li>
     </ul>
 </section>
 
 
-<section data-markdown>
-## Scalable and Actionable (meta)data representations
-![](pics/metadata.png)
-- (meta)data logistics solution with **built-in provenance capture**
 
-- automatic **metadata updates** to track evolution of standards
 
-- integrates well with storage/hosting technology
 
-- facilitates building metadata-driven applications 
-
-- viable system to **bring computation to data**
-Note:
 </section>
+
+<section>
+<section>
+    <h2>Acknowledgements</h2>
+  <table>
+  <tr style="vertical-align:middle">
+    <td style="vertical-align:middle">
+      <dl>
+        <dt>Software</dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Michael Hanke (INM-7)</li>
+              <li>Yaroslav Halchenko</li>
+              <li>Joey Hess (git-annex)</li>
+              <li>Kyle Meyer</li>
+              <li>Benjamin Poldrack (INM-7)</li>
+              <li><em>26 additional contributors</em></li>
+          </ul>
+        </dd>
+        <dt style="margin-top:20px">Documentation project </dt>
+        <dd style="margin-left:5px!important">
+          <ul style="margin-left:5px!important">
+              <li>Michael Hanke (INM-7)</li>
+              <li>Laura Waite (INM-7)</li>
+              <li><em>28 additional contributors</em></li>
+          </ul>
+        </dd>
+      </dl>
+    </td>
+    <td style="vertical-align:middle">
+  <div style="margin-bottom:-20px;text-align:center"><strong>Funders</strong></div>
+  <img style="height:150px;margin-right:50px" data-src="../pics/nsf.png" />
+  <img style="height:150px;margin-right:50pxi;margin-left:50px" data-src="../pics/binc.png" />
+  <img style="height:150px;margin-left:50px" data-src="../pics/bmbf.png" />
+  <br />
+  <img style="height:80px;margin-top:-40px;margin-left:auto;margin-right:auto;width:100%" data-src="../pics/fzj_logo.svg" />
+  <div style="margin-top:-20px">
+  <img style="height:60px;margin-right:20px" data-src="../pics/erdf.png" />
+  <img style="height:60px;margin-right:20px" data-src="../pics/cbbs_logo.png" />
+  <img style="height:60px" data-src="../pics/LSA-Logo.png" />
+  </div>
+  <div style="margin-top:40px;margin-bottom:20px;text-align:center"><strong>Collaborators</strong></div>
+  <div style="margin-top:-20px">
+  <img style="height:100px;margin:20px" data-src="../pics/hbp_logo.png" />
+  <img style="height:100px;margin:20px" data-src="../pics/conp_logo.png" />
+  <img style="height:100px;margin:20px" data-src="../pics/vbc_logo.png" />
+  </div>
+  <div style="margin-top:-40px">
+  <img style="height:120px;margin:20px" data-src="../pics/openneuro_logo.png" />
+  <img style="height:120px;margin:20px" data-src="../pics/cbrain_logo.png" />
+  <img style="height:140px;margin:20px" data-src="../pics/brainlife_logo.png" />
+  </div>
+  </td>
+  </tr>
+  </table>
+</section>
+
+<section>
+    <h2>Thanks for your attention</h2>
+
+
+    <br><br>
+    <div style="margin-top:1em;text-align:center">
+    <small>
+    <table>
+        <tr>
+        </tr>
+        <tr style="vertical-align:middle">
+         <td>
+             <img src="pics/winrepo.png">
+         </td>
+            <td style="font-size: 18px">
+                <br><br>
+                Women neuroscientists are <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ejn.14397" target="_blank">
+                underrepresented in neuroscience</a>. You can use the <br>
+                <a href="https://www.winrepo.org/" target="_blank"> Repository for Women in Neuroscience</a> to find
+                and recommend neuroscientists for <br>
+                conferences, symposia or collaborations, and help making neuroscience more open & divers.
+            </td>
+        </tr>
+
+    </table>
+    </small>
+    </div>
+</section>
+</section>
+
+
 </div> <!-- /.slides -->
 </div> <!-- /.reveal -->
 
