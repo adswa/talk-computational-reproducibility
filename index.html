@@ -79,8 +79,42 @@
 <!-- Introduction -->
 
 <section>
-<section>
+<section data-transition="None">
     <h2>Here's a recent paper that I wrote</h2>
+    <img src="pics/clonerepo2.gif" class="fragment fade-in">
+
+    <ul><small>
+    Links: <a href="http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html" target="_blank">
+        Detailed walk-through</a>
+    +
+    <a href="https://github.com/psychoinformatics-de/paper-remodnav/" target="_blank">
+        Actual repository
+    </a></small></ul>
+</section>
+
+<section data-transition="None">
+    <h2>Here's a recent paper that I wrote</h2>
+    <img src="pics/showpdf.gif">
+    <ul><small>
+    Links: <a href="http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html" target="_blank">
+        Detailed walk-through</a>
+    +
+    <a href="https://github.com/psychoinformatics-de/paper-remodnav/" target="_blank">
+        Actual repository
+    </a></small></ul>
+</section>
+
+
+<section data-transition="None">
+    <h2>Here's a recent paper that I wrote</h2>
+    <img src="pics/kdenlive_cut/makepaperfast.GIF">
+    <ul><small>
+    Links: <a href="http://handbook.datalad.org/en/latest/usecases/reproducible-paper.html" target="_blank">
+        Detailed walk-through</a>
+    +
+    <a href="https://github.com/psychoinformatics-de/paper-remodnav/" target="_blank">
+        Actual repository
+    </a></small></ul>
 </section>
 
 
@@ -308,31 +342,31 @@ action summary:
             Neuroscientists acquire interesting data, but it has its peculiarities:
         </li>
         <ul style="font-size:30px">
-            <li class="fragment fade-in">
+            <li class="fragment fade-in" data-fragment-index="1">
                 Depending on acquisition hardware and analysis software, some
                 data are in proprietary formats (e.g., Neuromag, brain voyager,
                 brain vision)
             </li>
-            <li class="fragment fade-in">
+            <li class="fragment fade-in" data-fragment-index="1">
                 Depending on field, data can be sizeable (e.g., (f)MRI, CT,
                 EEG, PET, MEG)
             </li>
-            <li class="fragment fade-in">
+            <li class="fragment fade-in" data-fragment-index="1">
                 Heterogenous data from complex acquisitions with multiple data
                 channels and modalities
             </li>
-            <li class="fragment fade-in">
+            <li class="fragment fade-in" data-fragment-index="1">
                 Datasets are getting bigger and bigger (<a href="https://sci-hub.se/10.1016/j.neuroimage.2017.04.061" target="_blank">
                 Bzdok & Yeo, 2017</a>), e.g. multi-modal imaging, behavioral + genetics
                 data in HCP (<a href="http://humanconnectome.org/" target="_blank">humanconnectome.org</a>)
                 or UKBiobank (<a href="https://www.ukbiobank.ac.uk/" target="_blank">ukbiobank.ac.uk/</a>)
             </li>
-            <li class="fragment fade-in">
+            <li class="fragment fade-in" data-fragment-index="1">
                 Some data fall under General Data Protection Regulation (GDPR)
             </li>
         </ul>
     </ul>
-         <p class="fragment fade-in">
+         <p class="fragment fade-in" data-fragment-index="2">
            This makes data harder to access, structure, and share</p>
 </section>
 
@@ -636,7 +670,7 @@ action summary:
 <section>
     <h2>There is no one, simple solution</h2>
     <img class="fragment fade-in" data-fragment-index="1" src="pics/makeitwork.gif"></p>
-    <p class="fragment fade-in" data-fragment-index="1"> There a many, and they need to be combined</p>
+    <p class="fragment fade-in" data-fragment-index="1"> There are many, and they need to be combined</p>
 </section>
 
 <section>
@@ -683,7 +717,7 @@ action summary:
     </ul>
 </section>
 
-<section>
+<section data-transition="None">
     <h2>A few special tools and concepts</h2>
     <table>
         <tr>
@@ -709,105 +743,15 @@ action summary:
     <img class="fragment fade-in" data-fragment-index="3" src="pics/datahistory.png">
 </section>
 
-<section>
+<section data-transition="None">
     <h2>A few special tools and concepts</h2>
     <table>
         <tr>
             <td>
                 <img src="pics/debianmed.png" height="200">
-                <img src="pics/neurodebian.png" height="200">
+                <img src="pics/neurodebian.png" height="200"><br>
                 <img src="pics/rcran.png" height="200">
                 <img src="pics/pipylogo.svg" height="200">
-            </td>
-            <td>
-                <ul style="font-size:35px">
-                            <dt class="fragment fade-in">Software repositories</dt>
-                  <li class="fragment fade-in">packaging complex software <br>
-                                               and their dependencies
-                  </li>
-                  <li class="fragment fade-in">convenient installation and <br>
-                                               dependency management
-                  </li>
-                  <li class="fragment fade-in">Examples: <br>
-                                               Neurodebian, Debian Med, CRAN, PyPi<br>
-                  </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <img class="fragment fade-in" data-fragment-index="3" src="pics/datahistory.png">
-</section>
-
-<section data-transition="None">
-    <h2>Adoption and adaptation of existing solutions</h2>
-    <ul style="font-size:35px">
-            The neurosciences are a contributor and beneficiary of open software
-            tools and standards
-    </ul>
-    <table>
-        <tr>
-            <td>
-                <img class="fragment fade-in" src="pics/ProjectHistory.png" width="600">
-                <imgcredit><a href="https://the-turing-way.netlify.app/reproducible-research/vcs/vcs-data.html" target="_blank">
-                    CC-BY Scriberia & The Turing Way</a>
-                </imgcredit>
-            </td>
-            <td>
-                <ul style="font-size:35px">
-                            <dt class="fragment fade-in">Version control</dt>
-                  <li class="fragment fade-in">keep things organized</li>
-                  <li class="fragment fade-in">keep track of changes</li>
-                  <li class="fragment fade-in">revert changes or go <br>
-                      back to previous states</li>
-                  <li class="fragment fade-in">collect and share digital provenance</li>
-                    <li class="fragment fade-in">industry standard: Git</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-</section>
-
-<section data-transition="None">
-    <h2>Adoption and adaptation of existing solutions</h2>
-    <ul style="font-size:35px">
-            The neurosciences are a contributor and beneficiary of open software
-            tools and standards
-    </ul>
-    <table>
-        <tr>
-            <td>
-                <img src="pics/debianmed.png" height="200">
-                <img src="pics/neurodebian.png" height="200">
-                <img src="pics/rcran.png" height="200">
-                <img src="pics/pipylogo.svg" height="200">
-            </td>
-            <td>
-                <ul style="font-size:35px">
-                            <dt class="fragment fade-in">Software repositories</dt>
-                  <li class="fragment fade-in">packaging complex software <br>
-                                               and their dependencies
-                  </li>
-                  <li class="fragment fade-in">convenient installation and <br>
-                                               dependency management
-                  </li>
-                  <li class="fragment fade-in">Examples: <br>
-                                               Neurodebian, Debian Med, CRAN, PyPi<br>
-                  </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-</section>
-
-<section data-transition="None">
-    <h2>Adoption and adaptation of existing solutions</h2>
-    <ul style="font-size:35px">
-            The neurosciences are a contributor and beneficiary of open software
-            tools and standards
-    </ul>
-    <table>
-        <tr>
-            <td>
                 <img src="pics/dockerexplain2.png" height="500">
                 <imgcredit><a href="https://www.docker.com/resources/what-container" target="_blank">
                     Docker.com</a>
@@ -815,58 +759,66 @@ action summary:
             </td>
             <td>
                 <ul style="font-size:35px">
-                            <dt class="fragment fade-in">Software containers</dt>
-                  <li class="fragment fade-in">portable & sharable <br> software environments
-
+                            <dt>
+                                Software repositories,<br> managers,
+                                and software <br>containers</dt>
+                  <li class="fragment fade-in">
+                      Software repositories<br>
+                      (e.g., Neurodebian,<br>
+                      or Debian Med) package <br>
+                      complex software, +<br>
+                      convenient installation &<br>
+                      dependency management
                   </li>
-                  <li class="fragment fade-in">publish or consume software<br>
-                                               envs for free with container<br>
-                                               "Hubs" or collections
+                  <li class="fragment fade-in">
+                      Software containers<br>
+                      (e.g., Docker, Singularity) allow to
+                      encapsulate a complete <br>
+                      software environment
                   </li>
-                  <li class="fragment fade-in">Industry & Science standard: <br>
-                                               Docker and Singularity<br>
-                  </li>
-                  <li class="fragment fade-in">Neuro-community tools: <br>
-                      <a href="https://github.com/ReproNim/neurodocker" target="_blank">
-                            neurodocker</a>, <a href="https://github.com/rocker-org/rocker" target="_blank">
-                  rocker</a>, <br><a href="https://github.com/jupyterhub/repo2docker" target="_blank">
-                  repo2docker</a>, ...<br>
-                  </li>
-
                 </ul>
             </td>
         </tr>
     </table>
 </section>
 
-
-<section>
-    <h2>Research data management</h2>
+<section data-transition="None">
+    <h2>Handling data</h2>
     <ul style="font-size:35px">
-        <li class="fragment fade-in">
-            Large, complex data sets and analysis require good research data
-            management from the very start. <p class="fragment fade-in">
-            Just like Research Data Management
-            can't be an afterthought, reproducibility shouldn't be an afterthought
-            ("Reproducible by Design"
+        <li class="fragment fade-in" data-fragment-index="1">
+            Large, complex data sets and analysis require good (FAIR) research data
+            management from the very start, and that's a basis for computational reproducibility.<br></li>
+        <table>
+            <tr>
+                <td>
+                     <img class="fragment fade-in"  data-fragment-index="1" src="pics/JSC.png" height="400">
+                </td>
+                <td>
+                    <p class="fragment fade-in">
+                        Just like Research Data <br> Management
+                        can't be an <br> afterthought,
+                        reproducibility<br> management shouldn't <br>
+                        be an afterthought <br>
+                        ("Reproducible by Design" <br>
             <a href="https://doi.org/10.3389/fninf.2019.00001" target="_blank">
                 Kennedy et al., 2019</a>)</p>
+                </td>
+            </tr>
+        </table>
         </li>
-        <li class="fragment fade-in">National (e.g., <a href="https://www.nfdi-neuro.de/" target="_blank">NFDI4Neuro</a>)
-            and international initiatives (e.g., <a href="https://www.incf.org/" target="_blank">
-            INCF</a>) for improving RDM in neuroscience and providing tools and infrastructure
-            for interoperable analysis and data sharing
+        <li class="fragment fade-in">National (e.g., <a href="https://www.nfdi-neuro.de/" target="_blank">NFDINeuro</a>)
+            & international initiatives (e.g., <a href="https://www.incf.org/" target="_blank">
+            INCF</a>) improve RDM, reproducibility management, & data sharing with
+            tools, infrastructure, teaching
         </li>
-        <li class="fragment fade-in">Scientific and commercial (but often free)
-            infrastructure for sharing code, data, and software:
+        <li class="fragment fade-in">Plenty of infrastructure for sharing code,
+            data, and software:
             <a href="https://openneuro.org/" target="_blank">OpenNeuro</a>,
             <a href="https://zenodo.org/" target="_blank">zenodo.org</a>,
             <a href="https://www.softwareheritage.org/mission/science/" target="_blank">Software heritage</a>,
-            <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-GitLab" target="_blank">GitHub/GitLab/G-Node Gin/Bitbucket</a>,
-            <a href="https://osf.io/" target="_blank">The Open Science Framework</a>, ...
-        </li>
-        <li class="fragment fade-in">
-            Work enabling safe, open data sharing of private data (e.g.,
+            <a href="https://git-scm.com/book/en/v2/Git-on-the-Server-GitLab" target="_blank">GitHub/GitLab/Gin</a>,
+            <a href="https://osf.io/" target="_blank">The Open Science Framework</a>, ..., and
+            work enabling safe, open data sharing of private data (e.g.,
             <a href="https://open-brain-consent.readthedocs.io/en/stable/index.html" target="_blank">
                 Open Brain Consent</a>)
         </li>
@@ -903,81 +855,6 @@ action summary:
     </ul>
     <img class="fragment fade-in" data-fragment-index="1" src="pics/decentral_RDM.png">
 </section>
-
-<section>
-    <img src="pics/shareresearch2.gif" height="800">
-</section>
-
-<!--
-<section>
-    <h2>Training</h2>
-    More and more tools and services exist that enable open and (computationally)
-    reproducible science, and they are getting easier and easier to use.
-
-    There is a large amount of especially ECRs that share a dedication and motivation
-    for open science.
-
-    Sometimes you only need to know about a tool
-
-    Markdown, Rmarkdown
-</section>
--->
-
-<section>
-    <h2>I'm not special</h2>
-    <h3 class="fragment fade-in">I've just been lucky</h3>
-</section>
-
-
-  <section>
-      <h2>I struggled, but it should be easier for others</h2>
-      <table style="font-size:35px">
-    <tr>
-      <td>
-          The DataLad Handbook: Collaboratively written, user-focused and workflow-oriented tutorial-like
-          addition to software documentation
-         <a href="http://handbook.datalad.org" target="_blank">(handbook.datalad.org)</a>
-      </td>
-      <td>
-        <img src="pics/logo.svg" height="250">
-      </td>
-    </tr>
-  </table>
-
-    <table style="font-size:35px">
-        <tr>
-            <td><img src="pics/artwork/src/enter.svg" height="100"></a></td>
-            <td>
-              <ul>
-                <li>High-level function/command overviews, <br>
-                    Installation, Configuration, Cheatsheet</li>
-              </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><img src="pics/artwork/src/basics.svg" height="100"></td>
-            <td>
-              <ul>
-                <li>Narrative-based code-along course</li>
-                <li>Independent on background/skill level, <br>
-                    no technical/computing knowledge required</li>
-              </ul>
-            </td>
-       </tr>
-        <tr>
-            <td><img src="pics/artwork/src/usecases.svg" height="100"></td>
-            <td>
-              <ul>
-                <li>Step-by-step solutions to common <br>
-                    data management problems, like<br />how to
-                    make a reproducible paper</li>
-              </ul>
-            </td>
-        </tr>
-    </table>
-
-  </section>
-
 
 <section>
     <ul style="font-size:35px">
@@ -1033,9 +910,64 @@ action summary:
             OHBM Brainhack, Brainhack Global, Neurohackademy, SIPS,
             The Turing Way bookdashes</li>
     </ul>
-
 </section>
 
+
+<section>
+    <h2>I'm not special</h2>
+    <h3 class="fragment fade-in">I've just been lucky</h3>
+<!--    <img src="pics/badadina.jpg" class="fragment fade-in" height="500px"> -->
+</section>
+
+
+  <section>
+      <h2>I struggled, but it should be easier for others</h2>
+      <table style="font-size:35px">
+    <tr>
+      <td>
+          The DataLad Handbook: Collaboratively written, user-focused and workflow-oriented tutorial-like
+          addition to software documentation
+         <a href="http://handbook.datalad.org" target="_blank">(handbook.datalad.org)</a>
+      </td>
+      <td>
+        <img src="pics/logo.svg" height="250">
+      </td>
+    </tr>
+  </table>
+
+    <table style="font-size:35px">
+        <tr>
+            <td><img src="pics/artwork/src/enter.svg" height="100"></a></td>
+            <td>
+              <ul>
+                <li>High-level function/command overviews, <br>
+                    Installation, Configuration, Cheatsheet</li>
+              </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="pics/artwork/src/basics.svg" height="100"></td>
+            <td>
+              <ul>
+                <li>Narrative-based code-along course</li>
+                <li>Independent on background/skill level, <br>
+                    no technical/computing knowledge required</li>
+              </ul>
+            </td>
+       </tr>
+        <tr>
+            <td><img src="pics/artwork/src/usecases.svg" height="100"></td>
+            <td>
+              <ul>
+                <li>Step-by-step solutions to common <br>
+                    data management problems, like<br />how to
+                    make a reproducible paper</li>
+              </ul>
+            </td>
+        </tr>
+    </table>
+
+  </section>
 
 </section>
 
@@ -1056,7 +988,9 @@ action summary:
                         It is worth it
                     </li>
                     <li class="fragment fade-in">
-                        Go to a Hackathon!
+                        Go to a Hackathon, <br>
+                        learn, and help <br>
+                        other people learn!
                     </li>
                 </ul>
             </td>
