@@ -133,8 +133,8 @@
 
 <section data-transition="None">
     <h2>Here's how I do a data analysis</h2>
-                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:260px;margin-bottom:-60px">
-                         Record code execution together with
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:130px;margin-bottom:-60px;margin-left:750px">
+                        Record code execution together <br> with
                         input-data, output files and software
                         environment in the
                         execution-command
@@ -177,8 +177,8 @@
 
 <section data-transition="None">
     <h2>Here's how I do a data analysis</h2>
-                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:60px;margin-bottom:-60px">
-                        Result: machine readable record about which data, code, and
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:60px;margin-bottom:-60px;margin-left:200px">
+                        Result: machine readable record about which data, code, and <br>
                         software produced a result how, when, and why.
                         </p>
     <p style="z-index: -1">
@@ -273,6 +273,26 @@ action summary:
 <!-- Specific issues in Neuroscience -->
 
 <section>
+<section>
+    <h2>Why do I work in that way?</h2>
+    <ul>
+        <li class="fragment fade-in">
+            Because it makes my life easier
+        </li>
+        <li class="fragment fade-in">
+            Because it allows me to enable my future, forgetful self and
+            others to understand, redo, and verify what I have done
+        </li>
+        <li class="fragment fade-in">
+            Because it makes my research better, more accessible, and adaptable,
+            and makes me gain confidence in my results
+        </li>
+        <li class="fragment fade-in">
+            Because it makes collaborating with others and my past self easier
+        </li>
+    </ul>
+</section>
+
 
 <section>
     <h2>Specific issues: Data</h2>
@@ -378,6 +398,25 @@ action summary:
                     <imgcredit>Based on Piled Higher and Deeper
                         <a href="https://phdcomics.com/comics/archive_print.php?comicid=1531" target="_blank">
                             1531
+                        </a> </imgcredit></td>
+                </tr>
+            </table>
+    </dl>
+</section>
+
+<section data-transition="None">
+    <h2>Specific issues: Complex analysis</h2>
+    <dl style="font-size:35px">
+        <dt>The building blocks of a scientific result are rarely static</dt>
+            <table>
+                <tr>
+                    <td>Data changes <br>
+                        <small>(errors are fixed, data is extended,<br>
+                            naming standards change, ...)</small></td>
+                    <td><img src="pics/phd052810s.png" height="500">
+                    <imgcredit>Piled Higher and Deeper
+                        <a href="https://phdcomics.com/comics/archive_print.php?comicid=1323" target="_blank">
+                            1323
                         </a> </imgcredit></td>
                 </tr>
             </table>
@@ -548,9 +587,18 @@ action summary:
     </a> </imgcredit>
 </section>
 
+<section data-transition="None">
+    <h2>"This used to work on my machine..."</h2>
+    <img src="pics/WOMM2.jpg">
+        <imgcredit>Based on <a href="https://derickbailey.com/2017/02/08/digging-into-the-works-on-my-machine-problem/" target="_blank">
+        derickbailey.com
+    </a> </imgcredit><br>
+    And if the analysis does not fail, but produces different results,<br>
+    <b>how do you know which is the correct one</b>?
+</section>
 
 <section>
-    <h2>Most of us are no computer scientists</h2>
+    <h2>Most of us are not computer scientists</h2>
     <img src="pics/overwhelmed.png" height="800">
 </section>
 
@@ -762,34 +810,6 @@ action summary:
     </ul>
 </section>
 
-<section>
-    <h2>Link all research components</h2>
-    <table>
-        <tr>
-            <td>
-                <img src="pics/PreservationTriangle.png">
-                <imgcredit><a href="https://www.softwareheritage.org/mission/science/" target="_blank">
-                    Software Heritage
-                </a> </imgcredit>
-            </td>
-            <td>
-                <ul style="font-size:30px">
-                    <p>
-                    Link code, data, software <br>
-                    and results not only now <br>
-                    and locally on your PC.
-                    </p>
-
-                    Link them openly, persistent, <br>
-                    and transparently to your  <br>
-                    result, published paper, or derived data<br>
-
-                </ul>
-            </td>
-
-        </tr>
-    </table>
-</section>
 
 <section>
     <h2>DataLad <sub><small>(Hanke, Halchenko et al.)</small></sub></h2>
@@ -840,66 +860,119 @@ action summary:
 </section>
 -->
 
+<section>
+    <h2>I'm not special</h2>
+    <h3 class="fragment fade-in">I've just been lucky</h3>
+</section>
+
+
+  <section>
+      <h2>I struggled, but it should be easier for others</h2>
+      <table style="font-size:35px">
+    <tr>
+      <td>
+          The DataLad Handbook: Collaboratively written, user-focused and workflow-oriented tutorial-like
+          addition to software documentation
+         <a href="http://handbook.datalad.org" target="_blank">(handbook.datalad.org)</a>
+      </td>
+      <td>
+        <img src="pics/logo.svg" height="250">
+      </td>
+    </tr>
+  </table>
+
+    <table style="font-size:35px">
+        <tr>
+            <td><img src="pics/artwork/src/enter.svg" height="100"></a></td>
+            <td>
+              <ul>
+                <li>High-level function/command overviews, <br>
+                    Installation, Configuration, Cheatsheet</li>
+              </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><img src="pics/artwork/src/basics.svg" height="100"></td>
+            <td>
+              <ul>
+                <li>Narrative-based code-along course</li>
+                <li>Independent on background/skill level, <br>
+                    no technical/computing knowledge required</li>
+              </ul>
+            </td>
+       </tr>
+        <tr>
+            <td><img src="pics/artwork/src/usecases.svg" height="100"></td>
+            <td>
+              <ul>
+                <li>Step-by-step solutions to common <br>
+                    data management problems, like<br />how to
+                    make a reproducible paper</li>
+              </ul>
+            </td>
+        </tr>
+    </table>
+
+  </section>
+
+
+<section>
+    <ul style="font-size:35px">
+        <p class="fragment fade-in-then-semi-out">
+            The tools, methods, and services for computationally reproducible
+            science exist.
+        </p>
+        <p class="fragment fade-in">
+            But only having those tools won't save us
+        </p>
+        <br>
+        <p class="fragment fade-in">
+            We need to empower users to use them...
+        </p>
+        <p class="fragment fade-in">
+            ... and users need to turn to these tools not because they must,
+            but because it makes their life easier and their research better.
+        </p>
+    </ul>
+</section>
+
+
+<section data-transition="None">
+    <h2>Inclusive, collaborative, educational spaces</h2>
+        <p style="font-size:30px">Even the greatest tool will die if no one knows about it or
+        can use it, and no one's life is easier if you have to learn everything
+            by yourself from scratch, with no support.</p>
+    <br>
+    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/ohbmhack.png" height="220">
+    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/neurohackademy.jpg"  height="220">
+    <img src="pics/contributors.png" style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" height="460">
+    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/bookdash.jpg"  height="260">
+ <small>Top left: OHBM Brainhack, Top right: Neurohackademy,
+     <br>Bottom left: DataLad Handbook contributor count, Bottom right: Turing Way bookdash</small>
+</section>
+
 <section data-transition="None">
     <h2>Brainhacks, Hackathons, and Traintracks</h2>
 
     <ul style="font-size:35px">
-        Even the greatest tool will die if no one knows about it or
-        can use it, and no one's life is easier if you have to learn everything
-        by yourself from scratch, with no support.
-        <li class="fragment fade-in">
+        <li>
             Especially ECRs are extremely open towards new tools and motivated
             to improve their science (<a href="https://sci-hub.se/10.1016/j.neuron.2018.11.030" target="_blank">Poldrack, 2019</a>)
         </li>
-        <li class="fragment fade-in">
+        <li>
             Brainhack: Interdisciplinary conference format with educational
             sessions & components from hackathons & unconferences
         <a href="https://academic.oup.com/gigascience/article/5/1/s13742-016-0121-x/2720978" target="_blank">
         (Craddock et al., 2016)</a>
         </li>
-        <li class="fragment fade-in">
+        <li>
             Examples:
-            OHBM Brainhack, Brainhack Global, Neurohackademy, SIPS</li>
+            OHBM Brainhack, Brainhack Global, Neurohackademy, SIPS,
+            The Turing Way bookdashes</li>
     </ul>
 
 </section>
 
-<section data-transition="None">
-    <h2>Inclusive, collaborative, educational space</h2>
-    <br>
-    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/ohbmhack.png" height="220">
-    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/neurohackademy.jpg"  height="220">
-    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/ohbmvirtual.png"  height="360">
-    <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/bookdash.jpg"  height="260">
-
-</section>
-
-<section data-transition="None">
-    <h2>Communities and organizations</h2>
-    <dl>
-        <dt><a href="https://neurostars.org" target="_blank">Neurostars.org</a></dt>
-        <dd>
-            "Stackoverflow for Neuroscience"
-        </dd>
-    <dt><a href="https://the-turing-way.netlify.app/welcome.html" target="_blank">
-        The Turing Way</a></dt>
-        <dd>
-            An open-source community-guide to reproducible, ethical, inclusive and
-            collaborative data science
-        </dd>
-        <dt><a href="https://incf.org/" target="_blank">INCF</a></dt>
-        <dd>
-            A standards organization for open and FAIR neuroscience
-        </dd>
-        <dt>
-            <a href="https://www.repronim.org/" target="_blank">ReproNim</a>
-        </dt>
-        <dd>
-            Center for Reproducible Neuroimaging Computation
-        </dd>
-        <dt>...</dt>
-    </dl>
-</section>
 
 </section>
 
@@ -908,19 +981,29 @@ action summary:
     <section>
 
 <section>
-    <h2>So where are we at?</h2>
-    <ul style="font-size:35px">
-        <li class="fragment fade-in">
-            Computational reproducibility makes your life easier, and your
-            science more open, transparent, and accessible, and thus also more impactful
-        </li>
-        <li class="fragment fade-in">
-            Computational reproducibility is not an afterthought, and everything
-            matters - code, software, data, computational environment, all in
-            precise version
-        </li>
-    </ul>
-    <img class="fragment fade-in" src="pics/ReproducibleJourney.png" height="600">
+    <h2>So where are we?</h2>
+    <table>
+        <tr>
+            <td>
+                <ul style="font-size:35px">
+                    <li class="fragment fade-in">
+                        We can do it
+                    </li>
+                    <li class="fragment fade-in">
+                        It is worth it
+                    </li>
+                    <li class="fragment fade-in">
+                        Go to a Hackathon!
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <img src="pics/ReproducibleJourney.png" height="600">
+            </td>
+        </tr>
+    </table>
+
+
 </section>
 
 <section>
