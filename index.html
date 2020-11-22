@@ -88,73 +88,186 @@
     <h2>Here's how I do a data analysis</h2>
 </section>
 
-
-
-    <!--
 <section data-transition="None">
-    <h2>Reproducibility is good</h2>
-    <div>
-        <ul style="font-size:35px">
-            <li>You want to avoid the disaster of publishing "a miracle"</li>
-            <li>You will be faster (in the long run)
-                <ul>
-                  <li>Finding and fixing errors will be faster</li>
-                  <li>Progress on new projects will happen faster</li>
-                </ul>
-            </li>
-            <li>Researchers (reviewers!) will have more trust in your findings</li>
-            <li>Data sharing can foster collaboration (with your past self, inside and outside your institution) and lead to new projects and publications</li>
-            <li>You acquire (technical) skills that will likely become increasingly important for your career, either in academia or industry</li><br>
-        </ul></div>
-    <br><br><small><a href="https://sci-hub.se/10.1186/s13059-015-0850-7" target="_blank">Markowetz (2015)</a>,
-    <a href="https://sci-hub.se/10.1016/j.neuron.2018.11.030" target="_blank">Poldrack (2019)</a></small>
-</section>
--->
+    <h2>Here's how I do a data analysis</h2>
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:60px;margin-bottom:-60px">
+                        Enshrine my analysis in a script
+                        </p>
+                        <p class="fragment fade-in" style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:180px;margin-bottom:-60px">
+                         Here: extract_lc_timeseries.py
+                        </p>
+    <p style="z-index: -1">
+<pre><code class="bash" style="max-height:none" data-line-numbers="6">$ datalad containers-run \
+  --message "Time series extraction from Locus Coeruleus"
+  --container-name nilearn \
+  --input 'mri/*_bold.nii' \
+  --output 'sub-*/LC_timeseries_run-*.csv' \
+  "python3 code/extract_lc_timeseries.py"
 
-<!--
+-- Git commit --
+    commit 5a7565a640ff6de67e07292a26bf272f1ee4b00e
+    Author:     Adina Wagner adina.wagner@t-online.de
+    AuthorDate: Mon Nov 11 16:15:08 2019 +0100
+    Commit:     Adina Wagner adina.wagner@t-online.de
+    CommitDate: Mon Nov 11 16:15:08 2019 +0100
+
+    [DATALAD RUNCMD] Time series extraction from Locus Coeruleus
+    === Do not change lines below ===
+    {
+     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
+     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
+     "inputs": [
+      "mri/*.bold.nii.gz",
+      ".datalad/environments/nilearn.simg"
+     ],
+     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
+     ...
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/LC_timeseries_run-1.csv | 1 +
+...
+</code></pre>
+        </p>
+</section>
+
 <section data-transition="None">
-    <h2>Reproducibility is good</h2>
-    <img src="pics/boring.jpg">
-</section>
--->
-<section data-transition="None"
-         data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
-         data-background-opacity="0.5">
-    <h2>The vision</h2>
-      <q cite="Jon Claerbout (paraphrased)">
-          An article about computational science in a scientific publication
-          is not the scholarship itself, it is merely advertising of the scholarship.
-          The actual scholarship is the complete software development environment
-          and the complete set of instructions which generated the figures.
-      </q>
-      <br><small>
-      Jon Claerbout (paraphrased)</small><br>
-    <img class="fragment fade-in" src="pics/comrep1.png" height="500">
+    <h2>Here's how I do a data analysis</h2>
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:260px;margin-bottom:-60px">
+                         Record code execution together with
+                        input-data, output files and software
+                        environment in the
+                        execution-command
+                        </p>
+    <p style="z-index: -1">
+<pre><code class="bash" style="max-height:none" data-line-numbers="1-6">$ datalad containers-run \
+  --message "Time series extraction from Locus Coeruleus"
+  --container-name nilearn \
+  --input 'mri/*_bold.nii' \
+  --output 'sub-*/LC_timeseries_run-*.csv' \
+  "python3 code/extract_lc_timeseries.py"
+
+-- Git commit --
+    commit 5a7565a640ff6de67e07292a26bf272f1ee4b00e
+    Author:     Adina Wagner adina.wagner@t-online.de
+    AuthorDate: Mon Nov 11 16:15:08 2019 +0100
+    Commit:     Adina Wagner adina.wagner@t-online.de
+    CommitDate: Mon Nov 11 16:15:08 2019 +0100
+
+    [DATALAD RUNCMD] Time series extraction from Locus Coeruleus
+    === Do not change lines below ===
+    {
+     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
+     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
+     "inputs": [
+      "mri/*.bold.nii.gz",
+      ".datalad/environments/nilearn.simg"
+     ],
+     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
+     ...
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/LC_timeseries_run-1.csv | 1 +
+...
+</code></pre>
+    </p>
+
 </section>
 
-<section data-transition="None"
-         data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
-         data-background-opacity="0.5">
-    <h2>The vision</h2>
-      <q cite="Jon Claerbout (paraphrased)">
-          An article about computational science in a scientific publication
-          is not the scholarship itself, it is merely advertising of the scholarship.
-          The actual scholarship is the complete software development environment
-          and the complete set of instructions which generated the figures.
-      </q>
-      <br><small>
-      Jon Claerbout (paraphrased)</small>
-    <img src="pics/comrep2.png" height="500">
+<section data-transition="None">
+    <h2>Here's how I do a data analysis</h2>
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:60px;margin-bottom:-60px">
+                        Result: machine readable record about which data, code, and
+                        software produced a result how, when, and why.
+                        </p>
+    <p style="z-index: -1">
+<pre><code class="bash" style="max-height:none" data-line-numbers="8-30">$ datalad containers-run \
+  --message "Time series extraction from Locus Coeruleus"
+  --container-name nilearn \
+  --input 'mri/*_bold.nii' \
+  --output 'sub-*/LC_timeseries_run-*.csv' \
+  "python3 code/extract_lc_timeseries.py"
+
+-- Git commit --
+    commit 5a7565a640ff6de67e07292a26bf272f1ee4b00e
+    Author:     Adina Wagner adina.wagner@t-online.de
+    AuthorDate: Mon Nov 11 16:15:08 2019 +0100
+    Commit:     Adina Wagner adina.wagner@t-online.de
+    CommitDate: Mon Nov 11 16:15:08 2019 +0100
+
+    [DATALAD RUNCMD] Time series extraction from Locus Coeruleus
+    === Do not change lines below ===
+    {
+     "cmd": "singularity exec --bind {pwd} .datalad/environments/nilearn.simg bash..",
+     "dsid": "92ea1faa-632a-11e8-af29-a0369f7c647e",
+     "inputs": [
+      "mri/*.bold.nii.gz",
+      ".datalad/environments/nilearn.simg"
+     ],
+     "outputs": ["sub-*/LC_timeseries_run-*.csv"],
+     ...
+    }
+    ^^^ Do not change lines above ^^^
+---
+ sub-01/LC_timeseries_run-1.csv | 1 +
+...
+</code></pre>
+    </p>
 </section>
-<!--
-<section>
-    <h2></h2>
-      <img src="pics/ReproducibleDefinitionGrid.png">
-      <imgcredit>Illustration by Scriberia and The Turing Way</imgcredit>
-      <br><small><a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#rr-overview-definitions" target="_blank">
-      (The Turing Way)</a> </small>
+
+<section data-transition="None">
+    <h2>Here's how I re-do a data analysis</h2>
+                        <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:60px;margin-bottom:-60px;margin-left:350px">
+                        Use the unique identifier of the execution record
+                        </p>
+    <p style="z-index: -1">
+    <pre><code class="bash" style="max-height:none" data-line-numbers="1">$ datalad rerun 5a7565a640ff6de67
+[INFO   ] run commit 5a7565a640ff6de67; (Time series extraction from Locus Coeruleus)
+[INFO   ] Making sure inputs are available (this may take some time)
+get(ok): mri/sub-01_bold.nii (file)
+get(ok): mri/sub-02_bold.nii (file)
+        [...]
+[INFO   ] == Command start (output follows) =====
+[INFO   ] == Command exit (modification check follows) =====
+add(ok): sub-01/LC_timeseries_run-*.csv(file)
+add(ok): sub-02/LC_timeseries_run-*.csv (file)
+        [...]
+action summary:
+  add (ok: 30)
+  get (ok: 30)
+  save (ok: 2)
+  unlock (ok: 30)
+    </code></pre>
+    </p>
 </section>
--->
+
+<section data-transition="None">
+    <h2>Here's how I do a data analysis</h2>
+                    <p style="z-index: 100;position: fixed;background-color:#ede6d5;font-size:35px;box-shadow: 10px 10px 8px #888888;margin-top:400px;margin-bottom:-60px;margin-left:350px">
+                        ... to have a machine recompute and verify what has been done
+                        </p>
+    <p style="z-index: -1">
+    <pre><code class="bash" style="max-height:none" data-line-numbers="2-16">$ datalad rerun 5a7565a640ff6de67
+[INFO   ] run commit 5a7565a640ff6de67; (Time series extraction from Locus Coeruleus)
+[INFO   ] Making sure inputs are available (this may take some time)
+get(ok): mri/sub-01_bold.nii (file)
+get(ok): mri/sub-02_bold.nii (file)
+        [...]
+[INFO   ] == Command start (output follows) =====
+[INFO   ] == Command exit (modification check follows) =====
+add(ok): sub-01/LC_timeseries_run-*.csv(file)
+add(ok): sub-02/LC_timeseries_run-*.csv (file)
+        [...]
+action summary:
+  add (ok: 30)
+  get (ok: 30)
+  save (ok: 2)
+  unlock (ok: 30)
+    </code></pre>
+</section>
+
+
 </section>
 
 <!-- Specific issues in Neuroscience -->
