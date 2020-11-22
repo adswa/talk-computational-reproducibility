@@ -1,3 +1,7 @@
 [submodule "reveal.js"]
 	path = reveal.js
 	url = https://github.com/hakimel/reveal.js.git
+[submodule "pics/artwork"]
+	path = pics/artwork
+	url = git@github.com:datalad-handbook/artwork.git
+	datalad-id = 4d04397a-c725-11e9-a657-f0d5bf7b5561
