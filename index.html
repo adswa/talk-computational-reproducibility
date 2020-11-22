@@ -79,16 +79,63 @@
 <!-- Introduction -->
 
 <section>
-<h2>The vision</h2>
-    A digital research object can be reproduced
 <section>
-    <h2></h2>
-
-    Automatic computational reproducibility and verification
+    <h2>Here's a recent paper that I wrote</h2>
 </section>
 
-<section  data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
-  data-background-opacity="0.5">
+
+<section>
+    <h2>Here's how I do a data analysis</h2>
+</section>
+
+
+
+    <!--
+<section data-transition="None">
+    <h2>Reproducibility is good</h2>
+    <div>
+        <ul style="font-size:35px">
+            <li>You want to avoid the disaster of publishing "a miracle"</li>
+            <li>You will be faster (in the long run)
+                <ul>
+                  <li>Finding and fixing errors will be faster</li>
+                  <li>Progress on new projects will happen faster</li>
+                </ul>
+            </li>
+            <li>Researchers (reviewers!) will have more trust in your findings</li>
+            <li>Data sharing can foster collaboration (with your past self, inside and outside your institution) and lead to new projects and publications</li>
+            <li>You acquire (technical) skills that will likely become increasingly important for your career, either in academia or industry</li><br>
+        </ul></div>
+    <br><br><small><a href="https://sci-hub.se/10.1186/s13059-015-0850-7" target="_blank">Markowetz (2015)</a>,
+    <a href="https://sci-hub.se/10.1016/j.neuron.2018.11.030" target="_blank">Poldrack (2019)</a></small>
+</section>
+-->
+
+<!--
+<section data-transition="None">
+    <h2>Reproducibility is good</h2>
+    <img src="pics/boring.jpg">
+</section>
+-->
+<section data-transition="None"
+         data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
+         data-background-opacity="0.5">
+    <h2>The vision</h2>
+      <q cite="Jon Claerbout (paraphrased)">
+          An article about computational science in a scientific publication
+          is not the scholarship itself, it is merely advertising of the scholarship.
+          The actual scholarship is the complete software development environment
+          and the complete set of instructions which generated the figures.
+      </q>
+      <br><small>
+      Jon Claerbout (paraphrased)</small><br>
+    <img class="fragment fade-in" src="pics/comrep1.png" height="500">
+</section>
+
+<section data-transition="None"
+         data-background-image="https://alchetron.com/cdn/jon-claerbout-c970ff70-1e60-4ccc-92ca-583bba1b56b-resize-750.jpeg",
+         data-background-opacity="0.5">
+    <h2>The vision</h2>
       <q cite="Jon Claerbout (paraphrased)">
           An article about computational science in a scientific publication
           is not the scholarship itself, it is merely advertising of the scholarship.
@@ -97,8 +144,9 @@
       </q>
       <br><small>
       Jon Claerbout (paraphrased)</small>
+    <img src="pics/comrep2.png" height="500">
 </section>
-
+<!--
 <section>
     <h2></h2>
       <img src="pics/ReproducibleDefinitionGrid.png">
@@ -106,12 +154,13 @@
       <br><small><a href="https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html#rr-overview-definitions" target="_blank">
       (The Turing Way)</a> </small>
 </section>
-
+-->
 </section>
 
 <!-- Specific issues in Neuroscience -->
 
 <section>
+
 <section>
     <h2>Specific issues: Data</h2>
     <ul style="font-size:35px">
@@ -136,13 +185,15 @@
                 Datasets are getting bigger and bigger (<a href="https://sci-hub.se/10.1016/j.neuroimage.2017.04.061" target="_blank">
                 Bzdok & Yeo, 2017</a>), e.g. multi-modal imaging, behavioral + genetics
                 data in HCP (<a href="http://humanconnectome.org/" target="_blank">humanconnectome.org</a>)
-                or UKBiobank (<a href="https://www.ukbiobank.ac.uk/" target="_blank">ukbiobank.ac.uk/</a>
+                or UKBiobank (<a href="https://www.ukbiobank.ac.uk/" target="_blank">ukbiobank.ac.uk/</a>)
             </li>
             <li class="fragment fade-in">
                 Some data fall under General Data Protection Regulation (GDPR)
             </li>
         </ul>
     </ul>
+         <p class="fragment fade-in">
+           This makes data harder to access, structure, and share</p>
 </section>
 
 <section>
@@ -153,7 +204,7 @@
     <ul style="font-size:35px">
         <li class="fragment fade-in" data-fragment-index="2">
             Much of neuroscientific research is computationally intensive, with
-            complex workflows from raw data to result, and plenty of researcher's
+            complex workflows from raw data to result, and plenty of researchers
             degrees of freedom
         </li>
     </ul>
@@ -368,21 +419,20 @@
 </section>
 
 <section data-transition="None">
-    <h2>Common issues in (Neuro?)science</h2>
-    <img src="pics/fragile.png" height="800">
-    <imgcredit>Based on <a href="https://xkcd.com/2347/" target="_blank">
-        xkcd.com/2347/</a> (CC-BY)</imgcredit>
-</section>
-
-<section data-transition="None">
     <h2>"Works on my machine"</h2>
     <img src="pics/WOMM.jpg">
+    <imgcredit><a href="https://derickbailey.com/2017/02/08/digging-into-the-works-on-my-machine-problem/" target="_blank">
+        derickbailey.com
+    </a> </imgcredit>
 </section>
 
 
 <section data-transition="None">
     <h2>"This used to work on my machine..."</h2>
     <img src="pics/WOMM2.jpg">
+        <imgcredit>Based on <a href="https://derickbailey.com/2017/02/08/digging-into-the-works-on-my-machine-problem/" target="_blank">
+        derickbailey.com
+    </a> </imgcredit>
 </section>
 
 
@@ -391,6 +441,13 @@
     <img src="pics/overwhelmed.png" height="800">
 </section>
 
+
+<section data-transition="None">
+    <h2>Common issues in (Neuro?)science</h2>
+    <img src="pics/fragile.png" height="800">
+    <imgcredit>Based on <a href="https://xkcd.com/2347/" target="_blank">
+        xkcd.com/2347/</a> (CC-BY)</imgcredit>
+</section>
 
 <section>
     <h2>Towards computationally reproducible science</h2>
@@ -655,7 +712,7 @@
     <img src="pics/shareresearch2.gif" height="800">
 </section>
 
-
+<!--
 <section>
     <h2>Training</h2>
     More and more tools and services exist that enable open and (computationally)
@@ -668,7 +725,7 @@
 
     Markdown, Rmarkdown
 </section>
-
+-->
 
 <section data-transition="None">
     <h2>Brainhacks, Hackathons, and Traintracks</h2>
@@ -677,8 +734,9 @@
         Even the greatest tool will die if no one knows about it or
         can use it, and no one's life is easier if you have to learn everything
         by yourself from scratch, with no support.
-        <li>
-
+        <li class="fragment fade-in">
+            Especially ECRs are extremely open towards new tools and motivated
+            to improve their science (<a href="https://sci-hub.se/10.1016/j.neuron.2018.11.030" target="_blank">Poldrack, 2019</a>)
         </li>
         <li class="fragment fade-in">
             Brainhack: Interdisciplinary conference format with educational
@@ -686,7 +744,7 @@
         <a href="https://academic.oup.com/gigascience/article/5/1/s13742-016-0121-x/2720978" target="_blank">
         (Craddock et al., 2016)</a>
         </li>
-        <li>
+        <li class="fragment fade-in">
             Examples:
             OHBM Brainhack, Brainhack Global, Neurohackademy, SIPS</li>
     </ul>
