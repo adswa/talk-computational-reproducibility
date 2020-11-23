@@ -87,3 +87,9 @@ imgcredit
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+div.slide-number {
+  /* slide number on top */
+  bottom: unset!important;
+  font-size: 100%!important;
+}
