@@ -347,8 +347,8 @@ action summary:
 
     <br>
     <p class="fragment fade-in">
-        Because I'm a neuroscientist, and I have <b>specific <br>
-        issues </b>that make my life quite hard already
+        Neuroscience contains some specific and
+        complex obstacles to computational reproducibility.
     </p>
 </section>
 
@@ -377,7 +377,7 @@ action summary:
                 Datasets are getting bigger and bigger (<a href="https://sci-hub.se/10.1016/j.neuroimage.2017.04.061" target="_blank">
                 Bzdok & Yeo, 2017</a>), e.g. multi-modal imaging, behavioral + genetics
                 data in HCP (<a href="http://humanconnectome.org/" target="_blank">humanconnectome.org</a>)
-                or UKBiobank (<a href="https://www.ukbiobank.ac.uk/" target="_blank">ukbiobank.ac.uk/</a>)
+                or UKBiobank (<a href="https://www.ukbiobank.ac.uk" target="_blank">ukbiobank.ac.uk/</a>)
             </li>
             <li class="fragment fade-in" data-fragment-index="1">
                 Some data fall under General Data Protection Regulation (GDPR)
@@ -505,8 +505,8 @@ action summary:
     </dl>
 </section>
 
-<section>
-    <h2>Specific issues: Complex analyses</h2>
+<section data-transition="None">
+    <h2>Complex analysis ➝ chaotic projects </h2>
     "Shit, which version of which script produced these outputs from which version
     of what data?"<br>
     <img src="pics/manuallabor.png">
@@ -518,7 +518,7 @@ action summary:
 </section>
 
 
-<section>
+<section data-transition="None">
     <h3>The pipeline needs to become transparent</h3>
     <table>
         <tr>
@@ -538,7 +538,7 @@ action summary:
     </table>
 </section>
 
-<section>
+<section data-transition="None">
     <h3>The pipeline needs to become automated</h3>
     <table>
         <tr>
@@ -676,6 +676,15 @@ action summary:
 <section>
     <h2>Towards computationally reproducible science</h2>
     <div class="fragment fade-in">Which solutions exist in neuroscience?</div>
+    <br>
+    <ul class="fragment fade-in" style="font-size:30px">
+        <li>Open source software</li>
+        <li>Specific non-neuroscience solutions: <br>
+            Version control,
+            Software management & containers, <br>
+            research data management</li>
+        <li>Training and supportive environments</li>
+    </ul>
 </section>
 
 </section>
@@ -686,9 +695,11 @@ action summary:
 <section>
 
 <section>
-    <h2>There is no one, simple solution</h2>
+    <h2>There is no "one fits all" solution</h2>
     <img class="fragment fade-in" data-fragment-index="1" src="pics/makeitwork.gif"></p>
-    <p class="fragment fade-in" data-fragment-index="1"> There are many, and they need to be combined</p>
+    <p class="fragment fade-in" data-fragment-index="1">
+        There are many solutions to individual<br>
+        problems, and they need to be combined</p>
 </section>
 
 <section>
@@ -730,7 +741,7 @@ action summary:
     <br>
     <br>
     <ul>
-        <li>Removes financial barriers</li>
+        <li>Remove accessibility barriers</li>
         <li>Transparent digital provenance</li>
     </ul>
 </section>
@@ -766,11 +777,11 @@ action summary:
     <table>
         <tr>
             <td>
-                <img src="pics/debianmed.png" height="200">
-                <img src="pics/neurodebian.png" height="200"><br>
-                <img src="pics/rcran.png" height="200">
-                <img src="pics/pipylogo.svg" height="200">
-                <img src="pics/dockerexplain2.png" height="500">
+                <img src="pics/debianmed.png" height="100">
+                <img src="pics/neurodebian.png" height="100"><br>
+                <img src="pics/rcran.png" height="100">
+                <img src="pics/pipylogo.svg" height="100">
+                <img src="pics/dockerexplain2.png" height="300">
                 <imgcredit><a href="https://www.docker.com/resources/what-container" target="_blank">
                     Docker.com</a>
                 </imgcredit>
@@ -801,15 +812,16 @@ action summary:
 </section>
 
 <section data-transition="None">
-    <h2>Handling data</h2>
-    <ul style="font-size:35px">
+    <h2>Research data management</h2>
+    <ul style="font-size:30px">
         <li class="fragment fade-in" data-fragment-index="1">
             Large, complex data sets and analysis require good (FAIR) research data
             management from the very start, and that's a basis for computational reproducibility.<br></li>
         <table>
             <tr>
                 <td>
-                     <img class="fragment fade-in"  data-fragment-index="1" src="pics/JSC.png" height="400">
+                     <img class="fragment fade-in"  data-fragment-index="1" src="pics/JSC.png" height="350">
+                     <imgcredit>JISC; CC-BY-SA-ND</imgcredit>
                 </td>
                 <td>
                     <p class="fragment fade-in">
@@ -826,7 +838,7 @@ action summary:
         </li>
         <li class="fragment fade-in">National (e.g., <a href="https://www.nfdi-neuro.de/" target="_blank">NFDINeuro</a>)
             & international initiatives (e.g., <a href="https://www.incf.org/" target="_blank">
-            INCF</a>) improve RDM, reproducibility management, & data sharing with
+            INCF</a>, <a href="https://www.repronim.org/" target="_blank">ReproNim</a>) improve RDM, reproducibility management, & data sharing with
             tools, infrastructure, teaching
         </li>
         <li class="fragment fade-in">Plenty of infrastructure for sharing code,
@@ -844,7 +856,7 @@ action summary:
 </section>
 
 
-<section>
+<section data-transition="None">
     <h2>DataLad <sub><small>(Hanke, Halchenko et al.)</small></sub></h2>
 
         <ul style="font-size:35px">
@@ -853,20 +865,20 @@ action summary:
             build on top of <a href="https://git-scm.com/" target="_blank">Git</a>
             and <a href="https://git-annex.branchable.com/" target="_blank">Git-annex</a> (Joey Hess)
         </li>
-        <li class="fragment fade-in">
+        <li class="fragment fade-in" data-fragment-index="2">
             <b>Main features:</b>
         </li>
             <ul >
-                <li class="fragment fade-in">
+                <li class="fragment fade-in" data-fragment-index="2">
                     version-controlling and linking arbitrarily large digital objects
                     (data, software, code, results),
                 </li>
-                <li class="fragment fade-in">
+                <li class="fragment fade-in" data-fragment-index="3">
                     transport mechanisms for sharing, obtaining & collaborating
                     on data (analysis) using existing infrastructure without
                     a central service
                 </li>
-                <li class="fragment fade-in">
+                <li class="fragment fade-in" data-fragment-index="4">
                     Machine-readable, re-executable provenance
                 </li>
         </ul>
@@ -874,14 +886,47 @@ action summary:
     <img class="fragment fade-in" data-fragment-index="1" src="pics/decentral_RDM.png">
 </section>
 
+<section data-transition="None">
+    <h2>DataLad <sub><small>(Hanke, Halchenko et al.)</small></sub></h2>
+
+        <ul style="font-size:35px">
+        <li>
+            Domain-agnostic data management & data publication tool,
+            build on top of <a href="https://git-scm.com/" target="_blank">Git</a>
+            and <a href="https://git-annex.branchable.com/" target="_blank">Git-annex</a> (Joey Hess)
+        </li>
+        <li>
+            <b>Main features:</b>
+        </li>
+            <ul >
+                <li>
+                    version-controlling and linking arbitrarily large digital objects
+                    (data, software, code, results),
+                </li>
+                <li>
+                    transport mechanisms for sharing, obtaining & collaborating
+                    on data (analysis) using existing infrastructure without
+                    a central service
+                </li>
+                <li>
+                    Machine-readable, re-executable provenance
+                </li>
+        </ul>
+    </ul>
+    <img src="pics/linkage_subds.png">
+
+</section>
+
+
 <section>
+    <h2>Empowerment through training</h2>
     <ul style="font-size:35px">
         <p class="fragment fade-in-then-semi-out">
             The tools, methods, and services for computationally reproducible
             science exist.
         </p>
         <p class="fragment fade-in">
-            But only having those tools won't save us
+            But only having those tools is not enough.
         </p>
         <br>
         <p class="fragment fade-in">
@@ -905,8 +950,11 @@ action summary:
     <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/neurohackademy.jpg"  height="220">
     <img src="pics/contributors.png" style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" height="460">
     <img style="box-shadow: 10px 10px 8px #888888;margin-top:-20px;margin-bottom:-10px" src="pics/bookdash.jpg"  height="260">
- <small>Top left: OHBM Brainhack, Top right: Neurohackademy,
-     <br>Bottom left: DataLad Handbook contributor count, Bottom right: Turing Way bookdash</small>
+    <small>Top left: <a href="https://ohbm.github.io/hackathon2020/" target="_blank">OHBM Brainhack</a>,
+        Top right: <a href="https://neurohackademy.org/" target="_blank">Neurohackademy</a>,
+     <br>Bottom left: <a href="https://github.com/datalad-handbook/book#contributors-" target="_blank">
+            DataLad Handbook contributor count</a>,
+        Bottom right: <a href="https://the-turing-way.netlify.app/welcome" target="_blank">Turing Way bookdash</a></small>
 </section>
 
 <section data-transition="None">
@@ -925,21 +973,17 @@ action summary:
         </li>
         <li>
             Examples:
-            OHBM Brainhack, Brainhack Global, Neurohackademy, SIPS,
-            The Turing Way bookdashes</li>
+             <a href="https://ohbm.github.io/hackathon2020/" target="_blank">OHBM Brainhack</a>,
+            <a href="https://brainhack.org/global2020/" target="_blank">Brainhack Global</a>,
+            <a href="https://neurohackademy.org/" target="_blank">Neurohackademy</a>,
+            <a href="https://www.apa.org/science/about/psa/2020/03/hackathon" target="_blank">SIPS hackathons</a>,
+            <a href="https://the-turing-way.netlify.app/welcome" target="_blank">Turing Way bookdashes</a></li>
     </ul>
 </section>
 
 
-<section>
-    <h2>I'm not special</h2>
-    <h3 class="fragment fade-in">I've just been lucky</h3>
-<!--    <img src="pics/badadina.jpg" class="fragment fade-in" height="500px"> -->
-</section>
-
-
   <section>
-      <h2>I struggled, but it should be easier for others</h2>
+      <h2>Everyone should be able to learn</h2>
       <table style="font-size:35px">
     <tr>
       <td>
@@ -1060,8 +1104,10 @@ action summary:
 
 <section>
     <h2>Thanks for your attention</h2>
-
-
+    <img src="pics/QRcode" height="400"><br>
+        <small>Slides at
+        <a href="https://doi.org/10.5281/zenodo.4285927" target="_blank">
+            DOI 10.5281/zenodo.4285927</a> </small>
     <br><br>
     <div style="margin-top:1em;text-align:center">
     <small>
